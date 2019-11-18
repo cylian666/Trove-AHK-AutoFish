@@ -116,7 +116,7 @@ AutoFish:
 			; caught nothing, wait 1 second and continue checking
 			Sleep, 1000
 			
-			if (FishingTimeCount++ > 20) {	; If waiting time is over 35 seconds, it must be a miss or something wrong.  Re-cast.
+			if (FishingTimeCount++ > 9) {	; If waiting time is over 35 seconds, it must be a miss or something wrong.  Re-cast.
 				NatualPress("b", pid)
 				break
 			}
