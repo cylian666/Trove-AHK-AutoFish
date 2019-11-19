@@ -88,7 +88,7 @@ AutoFish:
 		; Anti-AFK
 		Gosub, AntiAFK
 
-		NatualPress("f", pid)	; Casting the line
+		NatualPress("w", pid)	; Casting the line
 		Sleep, 15000	; Check for bite after 15 seconds.  Players must wait for 20-30 seconds for the lure to start splashing in order to reel in a fish. Reduce the pole checking loop.
 		FishingTimeCount := 0
 		
@@ -106,8 +106,8 @@ AutoFish:
 
 			if (CaughtWater || CaughtLava || CaughtChoco) {
 			; Fish caught, reel in
-				NatualPress("f", pid)
-				Random, Wait, 2000, 3500 ; Wait a few seconds
+				NatualPress("w", pid)
+				Random, Wait, 700, 1200 ; Wait a few seconds
 				Sleep, %Wait%
 				NatualPress("b", pid)
 				break
@@ -116,7 +116,7 @@ AutoFish:
 			; caught nothing, wait 1 second and continue checking
 			Sleep, 1000
 			
-			if (FishingTimeCount++ > 20) {	; If waiting time is over 35 seconds, it must be a miss or something wrong.  Re-cast.
+			if (FishingTimeCount++ > 9) {	; If waiting time is over 35 seconds, it must be a miss or something wrong.  Re-cast.
 				NatualPress("b", pid)
 				break
 			}
